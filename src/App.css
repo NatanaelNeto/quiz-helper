@@ -1,37 +1,255 @@
+.main,
+.root {
+  width: 100%;
+}
+
 .main {
-  margin: 20px auto;
-  width: 90%;
-}
-
-header p {
-  font-style: italic;
-}
-
-header p:last-child {
-  font-size: 1em;
-  margin-bottom: 40px;
-}
-
-a,
-a:active {
-  color: #1DB702;
-  text-decoration: none;
-}
-
-h1 {
-  font-size: 3em;
-}
-
-p {
-  font-size: 1.25em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
-  width: 100%;
-  margin: 0 auto;
-  margin-bottom: 20px;
+  background-color: #1F2631;
   display: flex;
+  flex-direction: column;
+  max-width: 1100px;
+  width: 100%;
+  margin: 40px 24px 72px;
+  padding: 32px;
+  border-color: #565f6a;
+  border-radius: 12px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.container-title {
+  margin-bottom: 16px;
+}
+
+.counter {
+  margin-bottom: 32px;
+  color: #1A850F;
+}
+
+.counter::before {
+  content: "";
+  box-sizing: border-box;
+  display: inline-block;
+  border-color: #5fd149;
+  border-radius: 9999px;
+  border-style: solid;
+  border-width: 1px;
+  background: linear-gradient(90deg, rgba(95, 209, 73, 1) 62%, rgba(223, 246, 219, 1) 62%);
+  color: #3e4854;
+  width: 200px;
+  height: 10px;
+  margin-right: 10px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #094493;
+  border: none;
+  border-radius: 4px;
+  color: #EFF1F4;
+  height: 2.75rem;
+  padding: 8px 24px;
+  font-size: 1rem;
+}
+
+.button:hover {
+  background-color: #0e5ab8;
+}
+
+.button.copy {
+  position: absolute;
+  right: 0;
+  background-color: #33971f;
+}
+
+.button.copy:hover {
+  background-color: #52be3c;
+}
+
+.button:disabled {
+  background-color: #3e4854;
+  color: rgb(182, 182, 182);
+  cursor: not-allowed;
+}
+
+.btn-container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: flex-start;
+}
+
+.container-question {
+  display: flex;
+}
+
+.question-title {
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 18px;
+  cursor: text;
+  position: relative;
+}
+
+.question-title:hover {
+  background-color: #313c4e;
+}
+
+.question-title:empty:before {
+  content: 'Insira o enunciado da pergunta aqui';
+}
+
+.question-title:hover::after {
+  content: "✏️";
+  position: absolute;
+  right: -30px;
+}
+
+.question-title::placeholder {
+  color: rgb(255, 255, 255);
+}
+
+.question-number {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.question-answers {
+  display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  align-self: flex-start;
+  gap: 8px;
+  margin: 35px 0 40px;
+}
+
+.question-answer {
+  display: flex;
+  align-items: center;
+  font-size: 1.125rem;
+  width: 100%;
+  height: 47px;
+  text-align: start;
+}
+
+.answer-text {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  min-width: 300px;
+  height: 47px;
+  padding: 8px 32px;
+  border-color: #81BDFF;
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.answer-text:hover,
+.answer-justification:hover {
+  background-color: #313c4e;
+}
+
+.answer-text:hover::after {
+  content: "✏️";
+  position: absolute;
+  right: 0;
+}
+
+.answer-text:empty:before {
+  content: 'Insira a alternativa aqui';
+}
+
+.answer-correction {
+  cursor: pointer;
+  right: -20px;
+  height: 0;
+  width: 0;
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.answer-correction::after {
+  content: "✖️";
+  background-color: rgb(255, 115, 115);
+  border-radius: 50%;
+  font-size: 1rem;
+}
+
+.answer-correction:checked:after {
+  content: "✔️";
+  background-color: #a1ff8e;
+}
+
+.answer-justification {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.answer-justification:empty:before {
+  content: 'Insira a justificativa da alternativa aqui';
+}
+
+.answer-justification:hover::after {
+  content: "✏️";
+  position: absolute;
+  right: -30px;
+}
+
+.add-answer {
+  color: #5fd149;
+}
+
+.add-answer:hover::after {
+  content: "➕";
+}
+
+.input-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  max-width: 1100px;
+  width: 100%;
+  transform: translateX(-50%);
+  background-color: #1f2631d2;
+  padding: 32px;
+  border-color: #565f6a;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-style: solid;
+  border-width: 1px;
+  border-bottom: none;
+}
+
+.input-modal>textarea {
+  height: 80px;
+  -webkit-tap-highlight-color: transparent;
+  width: 95%;
+  max-width: 800px;
+  padding: 14px 8px;
 }
