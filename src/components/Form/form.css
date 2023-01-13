@@ -1,0 +1,41 @@
+.form-header h2 {
+  font-size: 1.5em;
+  margin-left: 10px;
+}
+
+.form-header p {
+  font-size: 1em;
+  font-style: italic;
+}
+
+.form-header {
+  margin-bottom: 10px;
+  display: flex;
+  flex-flow: row;
+}
+
+.form-block {
+  margin-bottom: 20px;
+}
+
+.form-md-block {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.form-md-block>* {
+  width: 49%;
+}
+
+.form {
+  width: 49%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(100%, 100%, 100%, 7%);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 50%);
+}
+
+.form>div:nth-child(1)>div.form-header>h2 {
+  margin-left: 0;
+}
