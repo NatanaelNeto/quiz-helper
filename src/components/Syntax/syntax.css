@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap');
+
+.syntax {
+  width: 49%;
+  height: auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(100%, 100%, 100%, 7%);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 50%);
+}
+
+.syntax h2 {
+  font-size: 1.5em;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.syntax p {
+  font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace !important;
+  font-size: 0.8em;
+}

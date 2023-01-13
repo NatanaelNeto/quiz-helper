@@ -1,34 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import { Form, Syntax } from './components';
 import './App.css'
+import { useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [question, setQuestion] = useState('');
 
+  const handleQuestion = (s: string) => {
+    setQuestion(s);
+  }
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='main'>
+      <header>
+        <h1>Trybe Quiz Helper</h1>
+        <p>Ferramenta para criar quizzes para a Trybe, versão CI-2023</p>
+        <p>Em caso de dúvidas, consultar <a href='https://github.com/betrybe/conteudo-modular-desenvolvimento-web/wiki/Guia-de-Elabora%C3%A7%C3%A3o-de-Itens-de-M%C3%BAltipla-Escolha-(Quizzes)' target='_blank'>o guia de qualidade de quizzes</a> da Trybe.</p>
+      </header>
+      <div className='container'>
+        <Form setQuestion={handleQuestion} />
+        <Syntax question={question} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <p>Feito por <a href='https://github.com/NatanaelNeto' target='_blank'>Natanael Neto</a></p>
     </div>
-  )
+  );
 }
 
 export default App
