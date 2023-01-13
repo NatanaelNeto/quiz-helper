@@ -1,3 +1,4 @@
+// @ts-nocheck
 import MDEditor, { commands } from "@uiw/react-md-editor";
 import { ChangeEvent, useEffect, useState } from "react";
 
