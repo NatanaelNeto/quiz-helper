@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/marked": "^4.0.8",
     "@uiw/react-md-editor": "^3.20.2",
+    "marked": "^4.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

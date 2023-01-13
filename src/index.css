@@ -3,12 +3,29 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+  font-family: Inter, Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 body {
+  background-color: #1A1B1C;
+  color: #ffe;
+}
+
+body,
+html {
   height: 100vh;
   width: 100%;
-  background-color: #121212;
-  color: #ffe;
+}
+
+code {
+  background:#3E4854;
+  color:#E22859;
+  padding-inline-start: 0.25rem;
+  padding-inline-end: 0.25rem;
+  border-radius: 4px;
+  font-size: 90%;
+}
+
+a {
+  color: #5fd149;
 }

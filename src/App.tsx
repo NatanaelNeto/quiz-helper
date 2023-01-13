@@ -3,13 +3,13 @@ import './App.css'
 import { useState } from 'react';
 
 const INITIAL_QUESTION = {
-  question: 'Insira o enunciado da pergunta aqui',
+  question: '',
   answers: [
-    { text: 'Alternativa A', correct: false, justification: 'Insira a justificativa da alternativa aqui' },
-    { text: 'Alternativa B', correct: false, justification: 'Insira a justificativa da alternativa aqui' },
-    { text: 'Alternativa C', correct: false, justification: 'Insira a justificativa da alternativa aqui' },
-    { text: 'Alternativa D', correct: false, justification: 'Insira a justificativa da alternativa aqui' },
-    { text: 'Alternativa E', correct: false, justification: 'Insira a justificativa da alternativa aqui' },
+    { text: '', correct: false, justification: '' },
+    { text: '', correct: false, justification: '' },
+    { text: '', correct: false, justification: '' },
+    { text: '', correct: false, justification: '' },
+    { text: '', correct: false, justification: '' },
   ],
 };
 
@@ -29,8 +29,22 @@ function App() {
 
   const handleChangeQuestion = (question: any) => {
     const newQuestions = [...questions];
-    newQuestions[currentQuestion] = question;
+    newQuestions[currentQuestion] = { ...newQuestions[currentQuestion], ...question };
     setQuestions(newQuestions);
+  }
+
+  const handleCopy = () => {
+    const {question, answers} = questions[currentQuestion];
+
+    // `>>${enunciado}<<*******
+    // (${correct === 'A' ? 'X' : ' '})${alterA}{{${justA}}}*******
+    // (${correct === 'B' ? 'X' : ' '})${alterB}{{${justB}}}*******
+    // (${correct === 'C' ? 'X' : ' '})${alterC}{{${justC}}}*******
+    // (${correct === 'D' ? 'X' : ' '})${alterD}{{${justD}}}*******
+    // (${correct === 'E' ? 'X' : ' '})${alterE}{{${justE}}}*******`
+    const text = `>>${question}<<
+${answers.map((answer) => `(${answer.correct ? 'X' : ' '})${answer.text}{{${answer.justification}}}`).join('\n')}`;
+    navigator.clipboard.writeText(text);
   }
 
   return (
@@ -43,7 +57,7 @@ function App() {
       <div className='container'>
         <h1 className="container-title">Quiz Creator v1</h1>
         <strong id="questions-counter" className="counter">{currentQuestionNumber} de {questions.length}</strong>
-        <Question {...questions[currentQuestion]} index={currentQuestionNumber} handleChange={handleChangeQuestion} />
+        <Question {...questions[currentQuestion]} questionIndex={currentQuestionNumber} handleChange={handleChangeQuestion} />
         <div className="btn-container">
           <button
             className="button"
@@ -60,10 +74,10 @@ function App() {
             Próxima
           </button>
           <button className="button" onClick={handleAddQuestion}>Criar nova pergunta</button>
-          <button className="button copy">Copiar resultado</button>
+          <button className="button copy" onClick={handleCopy}>Copiar pergunta</button>
         </div>
       </div>
-      <p>Feito por <a href='https://github.com/NatanaelNeto' target='_blank'>Natanael Neto</a></p>
+      <p>Feito por <a href='https://github.com/NatanaelNeto' target='_blank'>Natanael Neto</a> e <a href="https://github.com/eduardosantosf">Eduardo Santos</a></p>
     </div>
   );
 }

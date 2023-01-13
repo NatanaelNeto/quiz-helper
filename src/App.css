@@ -1,22 +1,5 @@
-body {
-  background-color: #1A1B1C;
-  color: white;
-  font-family: Inter, Arial, "Helvetica Neue", Helvetica, sans-serif;
-}
-
-body,
-html {
-  height: 100%;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  cursor: default;
-}
-
-.main, body>div {
+.main,
+.root {
   width: 100%;
 }
 
@@ -115,12 +98,22 @@ button {
 }
 
 .question-title {
+  display: flex;
+  align-items: center;
   border: none;
   background-color: transparent;
   color: white;
   font-size: 18px;
   cursor: text;
   position: relative;
+}
+
+.question-title:hover {
+  background-color: #313c4e;
+}
+
+.question-title:empty:before {
+  content: 'Insira o enunciado da pergunta aqui';
 }
 
 .question-title:hover::after {
@@ -147,56 +140,82 @@ button {
   margin: 35px 0 40px;
 }
 
-.question-answers>* {
+.question-answer {
   display: flex;
-  position: relative;
   align-items: center;
   font-size: 1.125rem;
-  min-width: 300px;
   width: 100%;
   height: 47px;
   text-align: start;
+}
+
+.answer-text {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  min-width: 300px;
+  height: 47px;
   padding: 8px 32px;
-  color: white;
-  background-color: transparent;
   border-color: #81BDFF;
   border-radius: 2px;
   border-style: solid;
   border-width: 2px;
-  cursor: pointer;
 }
 
-.question-answers>*:hover {
+.answer-text:hover,
+.answer-justification:hover {
   background-color: #313c4e;
 }
 
-.question-answers>*:hover::after {
+.answer-text:hover::after {
   content: "✏️";
   position: absolute;
-  right: 10px;
+  right: 0;
 }
 
-.answer-radio {
-  position: absolute;
+.answer-text:empty:before {
+  content: 'Insira a alternativa aqui';
+}
+
+.answer-correction {
   cursor: pointer;
   right: -20px;
   height: 0;
   width: 0;
+  margin: 0 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.answer-radio::after {
+.answer-correction::after {
   content: "✖️";
   background-color: rgb(255, 115, 115);
   border-radius: 50%;
   font-size: 1rem;
 }
 
-.answer-radio:checked:after {
+.answer-correction:checked:after {
   content: "✔️";
   background-color: #a1ff8e;
+}
+
+.answer-justification {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.answer-justification:empty:before {
+  content: 'Insira a justificativa da alternativa aqui';
+}
+
+.answer-justification:hover::after {
+  content: "✏️";
+  position: absolute;
+  right: -30px;
 }
 
 .add-answer {
@@ -205,4 +224,32 @@ button {
 
 .add-answer:hover::after {
   content: "➕";
+}
+
+.input-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  max-width: 1100px;
+  width: 100%;
+  transform: translateX(-50%);
+  background-color: #1f2631d2;
+  padding: 32px;
+  border-color: #565f6a;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-style: solid;
+  border-width: 1px;
+  border-bottom: none;
+}
+
+.input-modal>textarea {
+  height: 80px;
+  -webkit-tap-highlight-color: transparent;
+  width: 95%;
+  max-width: 800px;
+  padding: 14px 8px;
 }
