@@ -77,7 +77,7 @@ ${answers.map((answer) => `(${answer.correct ? 'X' : ' '})${answer.text}{{${answ
           <button className="button copy" onClick={handleCopy}>Copiar pergunta</button>
         </div>
       </div>
-      <p>Feito por <a href='https://github.com/NatanaelNeto' target='_blank'>Natanael Neto</a> e <a href="https://github.com/eduardosantosf">Eduardo Santos</a></p>
+      <p>Feito por <a href='https://github.com/NatanaelNeto' target='_blank'>Natanael Neto</a> e <a href="https://github.com/eduardosantosf">Eduardo Santos</a>.</p>
     </div>
   );
 }
