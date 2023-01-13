@@ -1,4 +1,3 @@
-import Form from "./Form/Form";
-import Syntax from "./Syntax/Syntax";
-
-export { Form, Syntax };
+export { default as Form } from "./Form/Form";
+export { default as Syntax } from "./Syntax/Syntax";
+export { default as Question } from "./Question/Question";
