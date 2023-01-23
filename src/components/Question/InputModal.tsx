@@ -6,9 +6,10 @@ type Props = {
   }
   value: any;
   handleChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  cancel: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-function InputModal({ inputInfo, value, handleChange }: Props) {
+function InputModal({ inputInfo, value, handleChange, cancel }: Props) {
   const inputRef = useRef<any>();
   const { name } = inputInfo;
 
@@ -23,6 +24,7 @@ function InputModal({ inputInfo, value, handleChange }: Props) {
         onChange={handleChange}
         value={value}
         ref={inputRef} />
+      <button onClick={(event) => cancel(event)}>X</button>
     </div>
   )
 }

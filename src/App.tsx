@@ -34,7 +34,7 @@ function App() {
   }
 
   const handleCopy = () => {
-    const {question, answers} = questions[currentQuestion];
+    const { question, answers } = questions[currentQuestion];
 
     // `>>${enunciado}<<*******
     // (${correct === 'A' ? 'X' : ' '})${alterA}{{${justA}}}*******
@@ -43,7 +43,7 @@ function App() {
     // (${correct === 'D' ? 'X' : ' '})${alterD}{{${justD}}}*******
     // (${correct === 'E' ? 'X' : ' '})${alterE}{{${justE}}}*******`
     const text = `>>${question}<<
-${answers.map((answer) => `(${answer.correct ? 'X' : ' '})${answer.text}{{${answer.justification}}}`).join('\n')}`;
+${answers.map((answer) => `(${answer.correct ? 'x' : ' '})${answer.text}{{${answer.justification}}}`).join('\n')}`;
     navigator.clipboard.writeText(text);
   }
 
@@ -77,7 +77,7 @@ ${answers.map((answer) => `(${answer.correct ? 'X' : ' '})${answer.text}{{${answ
           <button className="button copy" onClick={handleCopy}>Copiar pergunta</button>
         </div>
       </div>
-      <p>Feito por <a href='https://github.com/NatanaelNeto' target='_blank'>Natanael Neto</a> e <a href="https://github.com/eduardosantosf">Eduardo Santos</a>.</p>
+      <p className='footer'>Feito por <a href='https://github.com/NatanaelNeto' target='_blank'>Natanael Neto</a> e <a href="https://github.com/eduardosantosf">Eduardo Santos</a>.</p>
     </div>
   );
 }
