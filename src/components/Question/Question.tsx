@@ -53,10 +53,14 @@ function Question({ question, answers, questionIndex, handleChange }: Props) {
     handleChange({ [name]: value });
   }
 
+  const cancelChange = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setSelectedInput({ name: '', answerIndex: undefined });
+  }
+
   const handleSelectInput = (name: string, answerIndex?: number) => {
     setSelectedInput({ name, answerIndex });
   }
-
   return (
     <>
       <div className="container-question">
@@ -64,7 +68,9 @@ function Question({ question, answers, questionIndex, handleChange }: Props) {
         <p
           className="question-title"
           onClick={() => handleSelectInput('question')}
-          dangerouslySetInnerHTML={{ __html: marked.parse(question) }}
+          dangerouslySetInnerHTML={{
+            __html: marked.parse(question, { breaks: true, gfm: true })
+          }}
         />
       </div>
       <div id="question-answers" className="question-answers">
@@ -72,7 +78,7 @@ function Question({ question, answers, questionIndex, handleChange }: Props) {
           <Answer key={index} {...answer} answerIndex={index} handleSelectInput={handleSelectInput} handleChange={handleQuestionChange} />
         ))}
       </div>
-      {selectedInput.name && (<InputModal inputInfo={selectedInput} value={selectedValue} handleChange={handleQuestionChange} />)}
+      {selectedInput.name && (<InputModal cancel={cancelChange} inputInfo={selectedInput} value={selectedValue} handleChange={handleQuestionChange} />)}
     </>
   )
 }
